@@ -1,0 +1,47 @@
+{% extends 'layout.html' %} {% block title %} home {% endblock title %} 
+{% block content %}
+  
+          {% comment %} <form method="post">
+            {{admission_form}}
+            {% csrf_token %}
+            <input type="submit" value="Add New Admission"/>
+
+          </form> {% endcomment %}
+
+<form method="POST">
+  {% csrf_token %}
+  <div style="width:400px;margin:auto;padding:10px;">
+    <div style="display:flex;flex-direction:column;">
+      <label>ID</label>
+        <input type="number" name="id" id="id"/>
+    </div>
+  
+      <div style="display:flex;flex-direction:column;">
+          <label>Name</label>
+            <input type="text" name="stu_name" id="stu_name"/>
+      </div>
+      <div style="display:flex;flex-direction:column;" >
+          <label>Father Name</label>
+            <input type="text" name="stu_father" id="stu_father"/>
+          </div>
+          <div style="display:flex;flex-direction:column;">
+          <label>Date of Join</label>
+          <input type="date" name="joindate" id="joindate"/>
+          </div>
+          <div style="display:flex;flex-direction:column;">
+          <label>Course</label>
+            <input type="text" name="stu_class" id="stu_class"/>
+          </div>
+          <div style="display:flex;flex-direction:column;">
+          <label>Fees</label>
+            <input type="number" name="fee" id="fee"/>
+          </div>
+        <div style="display:flex; flex-direction:row-reverse;padding-top:10px;">
+            <input type="submit" value="Add New Admission"/>
+        </div>
+      </div>
+  </div>
+ 
+  </div>
+ 
+{% endblock content%}
