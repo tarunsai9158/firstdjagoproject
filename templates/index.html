@@ -13,23 +13,27 @@
   <div class="carousel-inner">
     <div class="carousel-item active">
       <img
-        src="https://up.yimg.com/ib/th?id=OIP.n8gQAQP1MTfYuwaI8PhzpAHaEV&pid=Api&rs=1&c=1&qlt=95&w=201&h=117"
+        src="https://picsum.photos/1600/400?coder"
         class="d-block w-100"
         alt="..."
+      
       />
     </div>
     <div class="carousel-item">
       <img
-        src="https://tse1.mm.bing.net/th?id=OIP.3AMS-poZrEwKv_c4sBdtrAHaEo&pid=Api&P=0&h=180"
+        src="https://picsum.photos/1600/400?mountain"
         class="d-block w-100"
         alt="..."
+        
       />
     </div>
     <div class="carousel-item">
       <img
-        src="https://tse1.mm.bing.net/th?id=OIP.n8gQAQP1MTfYuwaI8PhzpAHaEV&pid=Api&P=0&h=180"
+        src="https://picsum.photos/1600/400?trees"
         class="d-block w-100"
+
         alt="..."
+        
       />
     </div>
   </div>
@@ -51,30 +55,108 @@
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
     <span class="sr-only">Next</span>
   </a>
+
 </div>
+<style>
+  a[href="admissionentry"],
+  a[href="admissionentry"]:focus {
+    font-size: 17px;
+    padding: 10px 25px;
+    border-radius: 0.7rem;
+    background-image: linear-gradient(rgb(214, 202, 254), rgb(158, 129, 254));
+    border: 2px solid rgb(50, 50, 50);
+    border-bottom: 5px solid rgb(50, 50, 50);
+    box-shadow: 0px 1px 6px 0px rgb(158, 129, 254);
+    transform: translate(0, -3px);
+    cursor: pointer;
+    transition: 0.2s;
+    transition-timing-function: linear;
+  }
+
+  a[href="admissionentry"]:active {
+    transform: translate(0, 0);
+    border-bottom: 2px solid rgb(50, 50, 50);
+  }
+</style>
+
+<div class="py-3 px-3 my-3 mx-3">
+<a href="admissionentry" role="button">Add Admission</a>
+  
+</div>
+
 <div>
-<table class="table">
+<table class="table table-dark">
   <thead class="thead-dark">
     <tr>
+      <th scope="col">ID</th>
       <th scope="col">Name</th>
       <th scope="col">Father name</th>
-      <th scope="col">joindate</th>
-      <th scope="col">course</th>
-      <th scope="col">fee</th>
+      <th scope="col">Joindate</th>
+      <th scope="col">Course</th>
+      <th scope="col">Fee</th>
+      <th scope="col">Action</th>
+
     </tr> 
 
-      {% for red in studata %}
+      {% for red in data %}
 
       <tr>
+        <td>{{red.id}}</td>
         <td>{{red.stu_name}}</td>
         <td>{{red.stu_father}}</td>
         <td>{{red.joindate}}</td>
         <td>{{red.stu_class}}</td>
         <td>{{red.fee}}</td>
+        <td>
+          <span>
+           <a href="deleteadmission/{{red.id}}">
+            <svg class="action-icons" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
+            <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5M8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5m3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0"/>
+          </svg></a>
+
+          <a href="editadmission/{{red.id}}">
+          <svg class="action-icons" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+            <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+            <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z"/>
+          </svg></a>
+        </span>
+        </td>
       </tr>
+
 
       {% endfor %}
     </tbody>
+  </table>
+
+  
+</div>
+
+<div>
+  <table style="width:400px; margin:auto; background:aqua;">
+    <tr>
+      <td>ID:</td>
+      <td>{{result.id}}</td>
+    </tr>
+    <tr>
+      <td>NAME:</td>
+      <td>{{result.stu_name}}</td>
+    </tr>
+    <tr>
+      <td>FATHER:</td>
+      <td>{{result.stu_father}}</td>
+    </tr>
+    <tr>
+      <td>JOINDATE:</td>
+      <td>{{result.joindate}}</td>
+    </tr>
+    <tr>
+      <td>COURSE:</td>
+      <td>{{result.stu_class}}</td>
+    </tr>
+    <tr>
+      <td>FEE:</td>
+      <td>{{result.fee}}</td>
+    </tr>
   </table>
 </div>
 {% endblock content%}
